@@ -1,0 +1,1186 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Nikora | Python Full Stack Development Course</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #ffffff;
+            color: #252525;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        /* NAVIGATION */
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.97);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #f1f1f1;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 0;
+        }
+
+        .logo {
+            color: #f97316;
+            font-size: 1.6rem;
+            font-weight: 900;
+            letter-spacing: -1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            color: #333333;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: #f97316;
+        }
+
+        /* HERO */
+
+        .hero {
+            background:
+                radial-gradient(circle at top right, rgba(249, 115, 22, 0.18), transparent 32%),
+                linear-gradient(135deg, #fff7ed, #ffffff);
+            color: #252525;
+            min-height: 88vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            padding: 80px 0;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #ffedd5;
+            color: #c2410c;
+            padding: 10px 20px;
+            border-radius: 999px;
+            margin-bottom: 25px;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            line-height: 1.1;
+            margin-bottom: 25px;
+            letter-spacing: -2px;
+        }
+
+        .hero h1 span {
+            color: #f97316;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #666666;
+            max-width: 750px;
+            margin: auto;
+        }
+
+        .hero-buttons {
+            margin-top: 35px;
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary,
+        .btn-secondary {
+            padding: 15px 30px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: 0.2s ease;
+        }
+
+        .btn-primary {
+            background: #f97316;
+            color: white;
+        }
+
+        .btn-secondary {
+            border: 1px solid #fed7aa;
+            color: #c2410c;
+            background: white;
+        }
+
+        .btn-primary:hover,
+        .btn-secondary:hover {
+            transform: translateY(-2px);
+        }
+
+        .stats {
+            margin-top: 60px;
+            display: flex;
+            justify-content: center;
+            gap: 70px;
+            flex-wrap: wrap;
+        }
+
+        .stats h3 {
+            font-size: 2rem;
+            color: #f97316;
+        }
+
+        .stats p {
+            color: #777777;
+        }
+
+        /* GENERAL SECTIONS */
+
+        section {
+            padding: 90px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: #252525;
+            letter-spacing: -1px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px solid #f1f1f1;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.04);
+            transition: 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #fed7aa;
+        }
+
+        .card h3 {
+            margin-bottom: 15px;
+            color: #c2410c;
+        }
+
+        .card p {
+            color: #666666;
+        }
+
+        /* CURRICULUM */
+
+        .curriculum {
+            background: #fff7ed;
+        }
+
+        .module {
+            background: white;
+            padding: 20px 25px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            font-weight: 600;
+            border-left: 4px solid #f97316;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.03);
+        }
+
+        .module:hover {
+            background: #fffbf7;
+        }
+
+        /* PROJECTS */
+
+        .projects {
+            background: #252525;
+            color: white;
+        }
+
+        .projects .section-title {
+            color: white;
+        }
+
+        .projects .card {
+            background: #333333;
+            color: white;
+            border: 1px solid #444444;
+        }
+
+        .projects .card h3 {
+            color: #fb923c;
+        }
+
+        .projects .card p {
+            color: #d4d4d4;
+        }
+
+        /* PRICING */
+
+        .pricing {
+            background: #fff7ed;
+        }
+
+        .pricing-intro {
+            text-align: center;
+            color: #666666;
+            max-width: 750px;
+            margin: -25px auto 50px;
+        }
+
+        .pricing-grid {
+            max-width: 1200px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .pricing-card {
+            background: white;
+            border: 1px solid #fed7aa;
+            border-radius: 20px;
+            padding: 30px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 10px 30px rgba(249, 115, 22, 0.06);
+        }
+
+        .pricing-card:hover {
+            border-color: #f97316;
+        }
+
+        .pricing-card h3 {
+            color: #252525;
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+        }
+
+        .pricing-price {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 5px;
+            color: #f97316;
+        }
+
+        .pricing-price span {
+            font-size: 0.85rem;
+            color: #999999;
+            font-weight: 500;
+        }
+
+        .pricing-description {
+            color: #777777;
+            font-size: 0.9rem;
+            margin-top: 10px;
+            line-height: 1.6;
+        }
+
+        .pricing-features {
+            margin: 25px 0;
+            padding: 0;
+            flex-grow: 1;
+        }
+
+        .pricing-features li {
+            list-style: none;
+            padding: 10px 0;
+            border-bottom: 1px solid #f5f5f5;
+            color: #555555;
+            font-size: 0.9rem;
+        }
+
+        .pricing-btn {
+            display: block;
+            width: 100%;
+            text-align: center;
+            padding: 14px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            margin-top: 20px;
+            transition: 0.2s ease;
+            background: #f97316;
+            color: white;
+        }
+
+        .pricing-btn:hover {
+            transform: translateY(-2px);
+            background: #ea580c;
+        }
+
+        /* COMPLETE COURSE */
+
+        .complete-course {
+            max-width: 850px;
+            margin: 50px auto 0;
+            background: linear-gradient(135deg, #f97316, #ea580c);
+            border: 2px solid #fb923c;
+            border-radius: 22px;
+            padding: 45px;
+            text-align: center;
+            color: white;
+            box-shadow: 0 20px 50px rgba(249, 115, 22, 0.18);
+        }
+
+        .complete-course .pricing-badge {
+            display: inline-block;
+            background: white;
+            color: #c2410c;
+            padding: 8px 15px;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .complete-course h3 {
+            font-size: 2rem;
+            margin-bottom: 12px;
+        }
+
+        .complete-course .pricing-price {
+            font-size: 3.5rem;
+            color: white;
+        }
+
+        .complete-course .pricing-price span {
+            color: #ffedd5;
+        }
+
+        .complete-course .pricing-description {
+            color: #ffedd5;
+            max-width: 650px;
+            margin: 10px auto 25px;
+        }
+
+        .complete-course .pricing-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0 25px;
+            text-align: left;
+            max-width: 650px;
+            margin: 25px auto;
+        }
+
+        .complete-course .pricing-features li {
+            color: white;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .complete-course .pricing-btn {
+            max-width: 450px;
+            margin: 25px auto 0;
+            background: white;
+            color: #ea580c;
+        }
+
+        .complete-course .pricing-btn:hover {
+            background: #ffedd5;
+        }
+
+        .pricing-note {
+            text-align: center;
+            color: #888888;
+            margin-top: 35px;
+            font-size: 0.9rem;
+        }
+
+        /* CONTACT */
+
+        .cta {
+            background: #f97316;
+            color: white;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .cta p {
+            max-width: 700px;
+            margin: auto;
+            margin-bottom: 30px;
+            color: #ffedd5;
+        }
+
+        .whatsapp-btn {
+            display: inline-block;
+            background: white;
+            color: #c2410c;
+            text-decoration: none;
+            padding: 16px 35px;
+            border-radius: 10px;
+            font-weight: 700;
+            transition: 0.2s ease;
+        }
+
+        .whatsapp-btn:hover {
+            transform: translateY(-2px);
+            background: #fff7ed;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: #252525;
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        footer h3 {
+            color: #fb923c;
+        }
+
+        footer p {
+            margin: 8px 0;
+            color: #d4d4d4;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 70px 0;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+                letter-spacing: -1px;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-price {
+                font-size: 2.2rem;
+            }
+
+            .complete-course {
+                padding: 30px 20px;
+            }
+
+            .complete-course h3 {
+                font-size: 1.6rem;
+            }
+
+            .complete-course .pricing-price {
+                font-size: 2.8rem;
+            }
+
+            .complete-course .pricing-features {
+                grid-template-columns: 1fr;
+            }
+
+            .stats {
+                gap: 35px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+
+    <nav>
+        <div class="container navbar">
+            <div class="logo">NIKORA</div>
+
+            <div class="nav-links">
+                <a href="#why">Why Learn?</a>
+                <a href="#curriculum">Curriculum</a>
+                <a href="#projects">Projects</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+
+    <section class="hero">
+        <div class="container hero-content">
+
+            <div class="badge">
+                🐍 Professional Python Full Stack Training
+            </div>
+
+            <h1>
+                Become a <span>Python Full Stack Developer</span>
+                Through Real-World Projects
+            </h1>
+
+            <p>
+                Master Python, Django, REST APIs, databases, frontend
+                development, deployment and modern full stack development
+                through practical, hands-on projects.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#pricing" class="btn-primary">
+                    View Course Pricing
+                </a>
+
+                <a href="#curriculum" class="btn-secondary">
+                    Explore Curriculum
+                </a>
+            </div>
+
+            <div class="stats">
+                <div>
+                    <h3>100+</h3>
+                    <p>Hours Learning</p>
+                </div>
+
+                <div>
+                    <h3>15+</h3>
+                    <p>Hands-on Projects</p>
+                </div>
+
+                <div>
+                    <h3>10</h3>
+                    <p>Course Modules</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- WHY FULL STACK -->
+
+    <section id="why">
+        <div class="container">
+
+            <h2 class="section-title">Why Learn Python Full Stack?</h2>
+
+            <div class="grid">
+
+                <div class="card">
+                    <h3>🐍 Powerful Python Skills</h3>
+                    <p>
+                        Learn Python programming, object-oriented development,
+                        automation and backend application development.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>💻 Build Complete Applications</h3>
+                    <p>
+                        Learn how to create responsive frontends, powerful
+                        backend services and database-driven applications.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>🚀 Career-Ready Development</h3>
+                    <p>
+                        Develop practical full stack skills through real-world
+                        projects, APIs, deployment and application development.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CURRICULUM -->
+
+    <section id="curriculum" class="curriculum">
+        <div class="container">
+
+            <h2 class="section-title">Python Full Stack Curriculum</h2>
+
+            <div class="module">
+                Module 1 — Python Programming Fundamentals
+            </div>
+
+            <div class="module">
+                Module 2 — Object-Oriented Programming with Python
+            </div>
+
+            <div class="module">
+                Module 3 — HTML, CSS & JavaScript
+            </div>
+
+            <div class="module">
+                Module 4 — SQL & Database Management
+            </div>
+
+            <div class="module">
+                Module 5 — Django Web Development
+            </div>
+
+            <div class="module">
+                Module 6 — Django REST Framework & APIs
+            </div>
+
+            <div class="module">
+                Module 7 — React Frontend Development
+            </div>
+
+            <div class="module">
+                Module 8 — Authentication & Full Stack Integration
+            </div>
+
+            <div class="module">
+                Module 9 — Deployment, Git & Cloud Hosting
+            </div>
+
+            <div class="module">
+                Module 10 — Full Stack Project & Interview Preparation
+            </div>
+
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+
+    <section id="projects" class="projects">
+        <div class="container">
+
+            <h2 class="section-title">Projects You'll Build</h2>
+
+            <div class="grid">
+
+                <div class="card">
+                    <h3>Python Automation Application</h3>
+                    <p>
+                        Build a practical Python application using
+                        programming fundamentals and automation techniques.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Django Web Application</h3>
+                    <p>
+                        Create a database-driven web application using
+                        Django, templates and backend logic.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>REST API Development</h3>
+                    <p>
+                        Build and connect REST APIs using Django REST
+                        Framework and practical API workflows.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>React Frontend Application</h3>
+                    <p>
+                        Develop an interactive frontend using React,
+                        components and modern JavaScript.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Full Stack Authentication System</h3>
+                    <p>
+                        Implement user registration, login, authentication
+                        and frontend-backend integration.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>End-to-End Full Stack Project</h3>
+                    <p>
+                        Combine Python, Django, React and databases into
+                        a complete full stack application.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY LEARN WITH NIKORA -->
+
+    <section>
+        <div class="container">
+
+            <h2 class="section-title">Why Learn With Nikora?</h2>
+
+            <div class="grid">
+
+                <div class="card">
+                    <h3>Hands-On Learning</h3>
+                    <p>
+                        Learn by building practical Python and full stack
+                        applications from the ground up.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Practical Development Skills</h3>
+                    <p>
+                        Develop skills in frontend, backend, databases,
+                        APIs and application deployment.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Career Preparation</h3>
+                    <p>
+                        Build project experience and prepare for Python
+                        developer and full stack development opportunities.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- PRICING -->
+
+    <section id="pricing" class="pricing">
+        <div class="container">
+
+            <h2 class="section-title">
+                Choose Your Python Full Stack Plan
+            </h2>
+
+            <p class="pricing-intro">
+                Learn Python Full Stack Development with individual
+                modules priced at €49.99 each, or unlock the complete
+                10-module course package for €899.
+            </p>
+
+            <!-- 10 INDIVIDUAL MODULES -->
+
+            <div class="pricing-grid">
+
+                <!-- MODULE 1 -->
+
+                <div class="pricing-card">
+                    <h3>Module 1 — Python Programming Fundamentals</h3>
+
+                    <div class="pricing-price">
+                        €49.99 <span>one-time</span>
+                    </div>
+
+                    <div class="pricing-description">
+                        Learn Python syntax, variables, data types,
+                        functions, loops, collections and programming basics.
+                    </div>
+
+                    <ul class="pricing-features">
+                        <li>✓ Python Fundamentals</li>
+                        <li>✓ Variables & Data Types</li>
+                        <li>✓ Functions & Loops</li>
+                        <li>✓ Practical Exercises</li>
+                    </ul>
+
+                    <!-- REPLACE WITH MODULE 1 CHECKOUT URL -->
+                    <a href="YOUR_MODULE_1_CHECKOUT_URL"
+                       class="pricing-btn">
+                        Buy Module 1
+                    </a>
+                </div>
+
+                <!-- MODULE 2 -->
+
+                <div class="pricing-card">
+                    <h3>Module 2 — Object-Oriented Programming with Python</h3>
+
+                    <div class="pricing-price">
+                        €49.99 <span>one-time</span>
+                    </div>
+
+                    <div class="pricing-description">
+                        Master object-oriented programming, classes,
+                        objects, inheritance and reusable Python code.
+                    </div>
+
+                    <ul class="pricing-features">
+                        <li>✓ Classes & Objects</li>
+                        <li>✓ Inheritance & Polymorphism</li>
+                        <li>✓ Encapsulation</li>
+                        <li>✓ OOP Projects</li>
+                    </ul>
+
+                    <!-- REPLACE WITH MODULE 2 CHECKOUT URL -->
+                    <a href="YOUR_MODULE_2_CHECKOUT_URL"
+                       class="pricing-btn">
+                        Buy Module 2
+                    </a>
+                </div>
+
+                <!-- MODULE 3 -->
+
+                <div class="pricing-card">
+                    <h3>Module 3 — HTML, CSS & JavaScript</h3>
+
+                    <div class="pricing-price">
+                        €49.99 <span>one-time</span>
+                    </div>
+
+                    <div class="pricing-description">
+                        Learn to build responsive, interactive websites
+                        using HTML, CSS and JavaScript.
+                    </div>
+
+                    <ul class="pricing-features">
+                        <li>✓ HTML5 Fundamentals</li>
+                        <li>✓ CSS & Responsive Design</li>
+                        <li>✓ JavaScript Basics</li>
+                        <li>✓ Frontend Projects</li>
+                    </ul>
+
+                    <!-- REPLACE WITH MODULE 3 CHECKOUT URL -->
+                    <a href="YOUR_MODULE_3_CHECKOUT_URL"
+                       class="pricing-btn">
+                        Buy Module 3
+                    </a>
+                </div>
+
+                <!-- MODULE 4 -->
+
+                <div class="pricing-card">
+                    <h3>Module 4 — SQL & Database Management</h3>
+
+                    <div class="pricing-price">
+                        €49.99 <span>one-time</span>
+                    </div>
+
+                    <div class="pricing-description">
+                        Understand relational databases, SQL queries,
+                        database design and application data management.
+                    </div>
+
+                    <ul class="pricing-features">
+                        <li>✓ SQL Fundamentals</li>
+                        <li>✓ Database Design</li>
+                        <li>✓ Queries & Relationships</li>
+                        <li>✓ Database Projects</li>
+                    </ul>
+
+                    <!-- REPLACE WITH MODULE 4 CHECKOUT URL -->
+                    <a href="YOUR_MODULE_4_CHECKOUT_URL"
+                       class="pricing-btn">
+                        Buy Module 4
+                    </a>
+                </div>
+
+                <!-- MODULE 5 -->
+
+                <div class="pricing-card">
+                    <h3>Module 5 — Django Web Development</h3>
+
+                    <div class="pricing-price">
+                        €49.99 <span>one-time</span>
+                    </div>
+
+                    <div class="pricing-description">
+                        Build powerful backend web applications using
+                        Python and the Django framework.
+                    </div>
+
+                    <ul class="pricing-features">
+                        <li>✓ Django Fundamentals</li>
+                        <li>✓ Models & Views</li>
+                        <li>✓ Templates & URLs</li>
+                        <li>✓ Django Web Application</li>
+                    </ul>
+
+                    <!-- REPLACE WITH MODULE 5 CHECKOUT URL -->
+                    <a href="YOUR_MODULE_5_CHECKOUT_URL"
+                       class="pricing-btn">
+                        Buy Module 5
+                    </a>
+                </div>
+
+                <!-- MODULE 6 -->
+
+                <div class="pricing-card">
+                    <h3>Module 6 — Django REST Framework & APIs</h3>
+
+                    <div class="pricing-price">
+                        €49.99 <span>one-time</span>
+                    </div>
+
+                    <div class="pricing-description">
+                        Create RESTful APIs using Django REST Framework
+                        and connect backend services to applications.
+                    </div>
+
+                    <ul class="pricing-features">
+                        <li>✓ REST API Fundamentals</li>
+                        <li>✓ Serializers & Views</li>
+                        <li>✓ API Endpoints</li>
+                        <li>✓ API Development Project</li>
+                    </ul>
+
+                    <!-- REPLACE WITH MODULE 6 CHECKOUT URL -->
+                    <a href="YOUR_MODULE_6_CHECKOUT_URL"
+                       class="pricing-btn">
+                        Buy Module 6
+                    </a>
+                </div>
+
+                <!-- MODULE 7 -->
+
+                <div class="pricing-card">
+                    <h3>Module 7 — React Frontend Development</h3>
+
+                    <div class="pricing-price">
+                        €49.99 <span>one-time</span>
+                    </div>
+
+                    <div class="pricing-description">
+                        Learn React components, state, props and modern
+                        frontend development techniques.
+                    </div>
+
+                    <ul class="pricing-features">
+                        <li>✓ React Fundamentals</li>
+                        <li>✓ Components & Props</li>
+                        <li>✓ State & Hooks</li>
+                        <li>✓ React Application Project</li>
+                    </ul>
+
+                    <!-- REPLACE WITH MODULE 7 CHECKOUT URL -->
+                    <a href="YOUR_MODULE_7_CHECKOUT_URL"
+                       class="pricing-btn">
+                        Buy Module 7
+                    </a>
+                </div>
+
+                <!-- MODULE 8 -->
+
+                <div class="pricing-card">
+                    <h3>Module 8 — Authentication & Full Stack Integration</h3>
+
+                    <div class="pricing-price">
+                        €49.99 <span>one-time</span>
+                    </div>
+
+                    <div class="pricing-description">
+                        Connect frontend and backend applications,
+                        implement authentication and integrate APIs.
+                    </div>
+
+                    <ul class="pricing-features">
+                        <li>✓ User Authentication</li>
+                        <li>✓ Frontend-Backend Integration</li>
+                        <li>✓ API Consumption</li>
+                        <li>✓ Full Stack Integration Project</li>
+                    </ul>
+
+                    <!-- REPLACE WITH MODULE 8 CHECKOUT URL -->
+                    <a href="YOUR_MODULE_8_CHECKOUT_URL"
+                       class="pricing-btn">
+                        Buy Module 8
+                    </a>
+                </div>
+
+                <!-- MODULE 9 -->
+
+                <div class="pricing-card">
+                    <h3>Module 9 — Deployment, Git & Cloud Hosting</h3>
+
+                    <div class="pricing-price">
+                        €49.99 <span>one-time</span>
+                    </div>
+
+                    <div class="pricing-description">
+                        Learn version control, application deployment,
+                        cloud hosting and production deployment basics.
+                    </div>
+
+                    <ul class="pricing-features">
+                        <li>✓ Git & GitHub</li>
+                        <li>✓ Deployment Fundamentals</li>
+                        <li>✓ Cloud Hosting</li>
+                        <li>✓ Application Deployment Project</li>
+                    </ul>
+
+                    <!-- REPLACE WITH MODULE 9 CHECKOUT URL -->
+                    <a href="YOUR_MODULE_9_CHECKOUT_URL"
+                       class="pricing-btn">
+                        Buy Module 9
+                    </a>
+                </div>
+
+                <!-- MODULE 10 -->
+
+                <div class="pricing-card">
+                    <h3>Module 10 — Full Stack Project & Interview Preparation</h3>
+
+                    <div class="pricing-price">
+                        €49.99 <span>one-time</span>
+                    </div>
+
+                    <div class="pricing-description">
+                        Build a complete full stack application and
+                        prepare for Python and full stack developer interviews.
+                    </div>
+
+                    <ul class="pricing-features">
+                        <li>✓ End-to-End Full Stack Project</li>
+                        <li>✓ Project Deployment</li>
+                        <li>✓ Resume Guidance</li>
+                        <li>✓ Interview Preparation</li>
+                    </ul>
+
+                    <!-- REPLACE WITH MODULE 10 CHECKOUT URL -->
+                    <a href="YOUR_MODULE_10_CHECKOUT_URL"
+                       class="pricing-btn">
+                        Buy Module 10
+                    </a>
+                </div>
+
+            </div>
+
+            <!-- COMPLETE COURSE PACKAGE -->
+
+            <div class="complete-course">
+
+                <div class="pricing-badge">
+                    ⭐ COMPLETE COURSE PACKAGE
+                </div>
+
+                <h3>
+                    Complete Python Full Stack Course
+                </h3>
+
+                <div class="pricing-price">
+                    €459 <span>one-time</span>
+                </div>
+
+                <div class="pricing-description">
+                    Get all 10 modules in one complete Python Full Stack
+                    Development package. Learn Python, Django, databases,
+                    React, APIs and deployment through practical projects.
+                </div>
+
+                <ul class="pricing-features">
+                    <li>✓ Module 1 — Python Programming Fundamentals</li>
+                    <li>✓ Module 2 — Object-Oriented Programming with Python</li>
+                    <li>✓ Module 3 — HTML, CSS & JavaScript</li>
+                    <li>✓ Module 4 — SQL & Database Management</li>
+                    <li>✓ Module 5 — Django Web Development</li>
+                    <li>✓ Module 6 — Django REST Framework & APIs</li>
+                    <li>✓ Module 7 — React Frontend Development</li>
+                    <li>✓ Module 8 — Authentication & Full Stack Integration</li>
+                    <li>✓ Module 9 — Deployment, Git & Cloud Hosting</li>
+                    <li>✓ Module 10 — Full Stack Project & Interview Preparation</li>
+                </ul>
+
+                <!-- REPLACE WITH €459 COMPLETE COURSE CHECKOUT URL -->
+                <a href="YOUR_COMPLETE_COURSE_CHECKOUT_URL"
+                   class="pricing-btn">
+                    Get Complete Course — €459
+                </a>
+
+            </div>
+
+            <p class="pricing-note">
+                All prices are displayed in EUR. Individual modules cost
+                €49.99 each. The complete 10-module course package costs €459.
+            </p>
+
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+
+    <section id="contact" class="cta">
+        <div class="container">
+
+            <h2>Start Your Python Full Stack Journey Today</h2>
+
+            <p>
+                Learn Python, Django, React, databases and full stack
+                development through practical projects with Nikora.
+            </p>
+
+            <a
+                href="https://wa.me/917259714991"
+                class="whatsapp-btn">
+                Chat on WhatsApp
+            </a>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <h3>Python Full Stack Development with Nikora</h3>
+
+        <p>Email: kondaracitejareddy@gmail.com</p>
+
+        <p>WhatsApp: +91 7259714991</p>
+
+        <p>© 2026 Nikora. All Rights Reserved.</p>
+
+    </footer>
+
+</body>
+</html>
